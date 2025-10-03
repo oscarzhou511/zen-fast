@@ -2,9 +2,59 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+# Memory optimizations
 - name: browser.lowMemoryResponseMask
   value: 3
   condition: 'defined(XP_MACOSX)'
 
+# Network performance
 - name: network.predictor.enable-hover-on-ssl
   value: true
+
+# GPU acceleration optimizations
+- name: gfx.webrender.all
+  value: true
+- name: layers.acceleration.force-enabled
+  value: true
+- name: gfx.canvas.accelerated
+  value: true
+
+# CPU/Thread optimizations
+- name: dom.ipc.processCount
+  value: 8
+- name: browser.tabs.remote.autostart
+  value: true
+
+# RAM usage optimizations
+- name: browser.cache.memory.capacity
+  value: 512000
+- name: browser.sessionhistory.max_total_viewers
+  value: 2
+- name: browser.cache.memory.max_entry_size
+  value: 51200
+
+# Speed optimizations - reduce animations
+- name: toolkit.cosmeticAnimations.enabled
+  value: false
+- name: ui.prefersReducedMotion
+  value: 1
+
+# Reduce reflows and repaints
+- name: layout.css.prefetch-wait-time
+  value: 0
+
+# Faster page rendering
+- name: nglayout.initialpaint.delay
+  value: 0
+- name: nglayout.initialpaint.delay_in_oopif
+  value: 0
+
+# Hardware video decoding
+- name: media.hardware-video-decoding.force-enabled
+  value: true
+
+# Disable unnecessary features for speed
+- name: browser.send_pings
+  value: false
+- name: browser.urlbar.speculativeConnect.enabled
+  value: false
