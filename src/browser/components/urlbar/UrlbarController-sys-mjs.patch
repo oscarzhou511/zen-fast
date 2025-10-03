@@ -1,0 +1,13 @@
+diff --git a/browser/components/urlbar/UrlbarController.sys.mjs b/browser/components/urlbar/UrlbarController.sys.mjs
+index 36e3ab4a5a153230bb488b66dda7e3e7c763ca23..cc4ea61914a316451fa54b01a5c8c6a305e4038a 100644
+--- a/browser/components/urlbar/UrlbarController.sys.mjs
++++ b/browser/components/urlbar/UrlbarController.sys.mjs
+@@ -434,6 +434,8 @@ export class UrlbarController {
+             });
+           }
+           event.preventDefault();
++        } else if (!this.input.value && !(event.ctrlKey || event.altKey || event.shiftKey)) {
++          this.browserWindow.gZenUIManager.enableCommandsMode(event);
+         }
+         break;
+       }

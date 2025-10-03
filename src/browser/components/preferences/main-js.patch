@@ -1,0 +1,13 @@
+diff --git a/browser/components/preferences/main.js b/browser/components/preferences/main.js
+index 3f578f3888684a1830d456f2a4896e8a5f6630fd..7de18a724d3953a5616577f65a8cf9a18f71893c 100644
+--- a/browser/components/preferences/main.js
++++ b/browser/components/preferences/main.js
+@@ -424,7 +424,7 @@ function getBundleForLocales(newLocales) {
+     ])
+   );
+   return new Localization(
+-    ["browser/preferences/preferences.ftl", "branding/brand.ftl"],
++    ["browser/preferences/preferences.ftl", "branding/brand.ftl", "browser/preferences/zen-preferences.ftl"],
+     false,
+     undefined,
+     locales
