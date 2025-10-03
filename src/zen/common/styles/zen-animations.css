@@ -3,57 +3,44 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+
+/* Simplified animations for better performance */
+
+/* Simplified jello animation - single step for speed */
 @keyframes zen-jello-animation {
-  0% {
-    transform: scale3d(0.8, 0.8, 0.8);
+  from {
+    opacity: 0;
   }
-
-  60% {
-    transform: scale3d(1.02, 1.02, 1.02);
-  }
-
   to {
     opacity: 1;
-    transform: scale3d(1, 1, 1);
   }
 }
 
 @keyframes zen-jello-animation-macos {
-  0% {
+  from {
     -moz-window-opacity: 0;
-    -moz-window-transform: scale(0.8);
   }
-
-  100% {
+  to {
     -moz-window-opacity: 1;
-    -moz-window-transform: scale(1);
   }
 }
 
 @keyframes zen-jello-animation-large {
-  0% {
-    transform: scale3d(0.8, 0.8, 0.8);
+  from {
+    opacity: 0;
   }
-
-  60% {
-    transform: scale3d(1.02, 1.02, 1.02);
-  }
-
   to {
     opacity: 1;
-    transform: scale3d(1, 1, 1);
   }
 }
 
+/* Simplified theme picker - no scaling */
 @keyframes zen-theme-picker-dot-animation {
   from {
-    transform: scale(0.8) translate(-50%, -50%);
-  }
-  50% {
-    transform: scale(1.2) translate(-50%, -50%);
+    opacity: 0.8;
   }
   to {
-    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
   }
 }
 
@@ -61,12 +48,9 @@
 @keyframes zen-glance-overlay-animation {
   from {
     opacity: 0;
-    transform: scale(0.8);
   }
-
   to {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -74,44 +58,27 @@
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0;
   }
 }
 
+/* Simplified back and forth - removed complex transforms */
 @keyframes zen-back-and-forth-text {
-  0%,
-  10% {
-    transform: translateX(0);
+  0%, 100% {
     left: 0;
   }
-
-  45%,
-  65% {
-    transform: translateX(calc(-100% - 5px));
+  50% {
     left: 100%;
-  }
-
-  90%,
-  100% {
-    transform: translateX(0);
-    left: 0;
   }
 }
 
-/* Mark: URL Bar */
+/* Mark: URL Bar - simplified shadow */
 @keyframes zen-urlbar-searchmode {
-  0% {
-    box-shadow: 0 0 20px
-      color-mix(
-        in srgb,
-        color-mix(in srgb, var(--zen-primary-color), var(--toolbox-textcolor) 20%),
-        light-dark(rgba(0, 0, 0, 0.3), transparent) 50%
-      );
+  from {
+    opacity: 0.8;
   }
-
-  100% {
-    box-shadow: 0 0 250px color-mix(in srgb, var(--zen-primary-color), transparent 100%);
+  to {
+    opacity: 1;
   }
 }
